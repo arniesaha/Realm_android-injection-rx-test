@@ -86,7 +86,7 @@ public class GitHubUserProfilePresenter {
                 .findFirst();
 
         if (gitHubUser != null) {
-            realm.executeTransaction(realm1 -> gitHubUser.setId(updatedId));
+//            realm.executeTransaction(realm1 -> gitHubUser.setId(updatedId));
         }
     }
 
@@ -96,7 +96,7 @@ public class GitHubUserProfilePresenter {
                 .findFirst();
 
         if (gitHubUserProfile != null) {
-            realm.executeTransaction(realm1 -> gitHubUserProfile.setName(updatedNameText));
+//            realm.executeTransaction(realm1 -> gitHubUserProfile.setName(updatedNameText));
         }
     }
 
@@ -109,15 +109,15 @@ public class GitHubUserProfilePresenter {
         }
 
         if (gitHubUserProfileViewSubscription == null || gitHubUserProfileViewSubscription.isUnsubscribed()) {
-            gitHubUserProfileViewSubscription = realm.where(GitHubUserProfile.class)
-                    .equalTo("login", login)
-                    .findFirstAsync()
-                    .asObservable()
-                    .cast(GitHubUserProfile.class)
-                    .filter(realmObject -> realmObject.isLoaded())
-                    .filter(realmObject -> realmObject.isValid())
-                    .subscribe(gitHubUserProfile -> weakReferenceView.get().setData(gitHubUserProfile),
-                            error -> weakReferenceView.get().stopRefreshAnimation());
+//            gitHubUserProfileViewSubscription = realm.where(GitHubUserProfile.class)
+//                    .equalTo("login", login)
+//                    .findFirstAsync()
+//                    .asObservable()
+//                    .cast(GitHubUserProfile.class)
+//                    .filter(realmObject -> realmObject.isLoaded())
+//                    .filter(realmObject -> realmObject.isValid())
+//                    .subscribe(gitHubUserProfile -> weakReferenceView.get().setData(gitHubUserProfile),
+//                            error -> weakReferenceView.get().stopRefreshAnimation());
         }
 
         if (!isViewLoadedAtLeastOnce && !areWeLoadingSomething) {

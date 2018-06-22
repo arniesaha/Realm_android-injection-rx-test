@@ -91,12 +91,12 @@ public class GitHubUserListPresenter {
         }
 
         if (gitHubUserListViewSubscription == null || gitHubUserListViewSubscription.isUnsubscribed()) {
-            gitHubUserListViewSubscription = realm.where(GitHubUser.class).findAllAsync().asObservable()
-                    .filter(RealmResults::isLoaded)
-                    .filter(RealmResults::isValid)
-                    .filter(realmResults -> realmResults.size() > 0)
-                    .subscribe(gitHubUsers -> weakReferenceView.get().setDataList(gitHubUsers)
-                            , error -> weakReferenceView.get().stopRefreshAnimation());
+//            gitHubUserListViewSubscription = realm.where(GitHubUser.class).findAllAsync().asObservable()
+//                    .filter(RealmResults::isLoaded)
+//                    .filter(RealmResults::isValid)
+//                    .filter(realmResults -> realmResults.size() > 0)
+//                    .subscribe(gitHubUsers -> weakReferenceView.get().setDataList(gitHubUsers)
+//                            , error -> weakReferenceView.get().stopRefreshAnimation());
         }
 
         if (!isViewLoadedAtLeastOnce && !areWeLoadingSomething) {
